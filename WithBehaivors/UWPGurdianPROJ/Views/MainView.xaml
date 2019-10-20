@@ -1,0 +1,51 @@
+﻿<views:MvxWindowsPage
+    xmlns:views="using:MvvmCross.Platforms.Uap.Views"
+    x:Class="UWPGurdianPROJ.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPGurdianPROJ.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView ItemInvoked="NavigationView_ItemInvoked">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Home" x:Name="HomeNavItem">
+                    <Interactivity:Interaction.Behaviors>
+                        <Interactions:EventTriggerBehavior EventName="Tapped" SourceObject="{Binding ElementName=HomeNavItem}">
+                            <Interactions:InvokeCommandAction Command="{Binding GoToContentPageCommand}"/>
+                        </Interactions:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Sport" x:Name="SportNavItem">
+                    <Interactivity:Interaction.Behaviors>
+                        <Interactions:EventTriggerBehavior EventName="Tapped" SourceObject="{Binding ElementName=SportNavItem}">
+                            <Interactions:InvokeCommandAction Command="{Binding GoToHomeViewCommand}"/>
+                        </Interactions:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Politics" x:Name="PoliticsNavItem">
+                    <Interactivity:Interaction.Behaviors>
+                        <Interactions:EventTriggerBehavior EventName="Tapped" SourceObject="{Binding ElementName=PoliticsNavItem}">
+                            <Interactions:InvokeCommandAction Command="{Binding GoToHomeViewCommand}"/>
+                        </Interactions:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Environment" x:Name="EnvironmentNavItem">
+                    <Interactivity:Interaction.Behaviors>
+                        <Interactions:EventTriggerBehavior EventName="Tapped" SourceObject="{Binding ElementName=EnvironmentNavItem}">
+                            <Interactions:InvokeCommandAction Command="{Binding GoToHomeViewCommand}"/>
+                        </Interactions:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.Content>
+                <Frame x:Name="ContentPage"/>
+            </NavigationView.Content>
+        </NavigationView>
+    </Grid>
+</views:MvxWindowsPage>
